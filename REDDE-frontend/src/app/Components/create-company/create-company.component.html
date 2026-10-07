@@ -1,0 +1,91 @@
+<h2 style="text-align: center;">Crear companiaa</h2>
+
+<div class="container bg-light">
+    <form class="row" (ngSubmit)="create()" [formGroup]="companyForm">
+        <div class="col-md-7 mt-3 mx-auto mb-3">
+            <label class="form-label">Buscar por rnc: </label>
+            <span></span>
+            <div class="input-group">
+                <input class="form-control" type="text" id="rnc" placeholder="Ingrese el RNC" formControlName="rnc">
+                <button class="btn btn-primary ml-2"t type="button" (click)="searchRNC()">Buscar</button>
+                <button class="btn btn-warning ml-2" type="button" (click)="clearForm()">Limpiar</button>
+            </div>
+            <div class="text-danger" *ngIf="companyForm.get('rnc')?.touched">
+                <span *ngIf="companyForm.get('rnc')?.errors?.required">
+                    El rnc es obligatorio
+                </span>
+            </div>
+            <div class="text-danger" *ngIf="companyForm.get('rnc')?.touched">
+                <span *ngIf="companyForm.get('rnc')?.errors?.pattern">
+                    El rnc debe ser numerico y de 11 caracteres
+                </span>
+            </div>
+            
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="name" class="form-label">Nombre de la compania: </label>
+            <input class="form-control" type="text" id="name" placeholder="Ingrese el nombre de la compania" formControlName="name">
+            <div class="text-danger" *ngIf="companyForm.get('name')?.touched">
+                <span *ngIf="companyForm.get('name')?.errors?.required">
+                    El nombre de la compania es obligatorio
+                </span>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="commercialName" class="form-label">Nombre comercial: </label>
+            <input class="form-control" type="text" id="commercialName" placeholder="Ingrese el nombre comercial" formControlName="commercialName">
+            <div class="text-danger" *ngIf="companyForm.get('commercialName')?.touched">
+                <span *ngIf="companyForm.get('commercialName')?.errors?.required">
+                    El nombre comercial de la compania es obligatorio
+                </span>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="category" class="form-label">Categoría: </label>
+            <input class="form-control" type="text" id="category" placeholder="Ingrese la categoría" formControlName="category">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="paymentScheme" class="form-label">Esquema de pago: </label>
+            <input class="form-control" type="text" id="paymentScheme" placeholder="Ingrese el método de pago" formControlName="paymentScheme">
+            <div class="text-danger" *ngIf="companyForm.get('paymentScheme')?.touched">
+                <span *ngIf="companyForm.get('paymentScheme')?.errors?.required">
+                    El esquema de pago es obligatorio
+                </span>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="state" class="form-label">Estado: </label>
+            <select class="form-control" type="text" id="state" placeholder="Ingrese el estado" formControlName="state">
+                <option value="ACTIVO">ACTIVO</option>
+                <option value="INACTIVO">INACTIVO</option>
+            </select>
+            <div class="text-danger" *ngIf="companyForm.get('state')?.touched">
+                <span *ngIf="companyForm.get('state')?.errors?.required">
+                    El estado es obligatorio
+                </span>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="economicActivity" class="form-label">Esquema de pago </label>
+            <input class="form-control" type="text" id="economicActivity" placeholder="Ingrese la actividad económica" formControlName="economicActivity">
+            <div class="text-danger" *ngIf="companyForm.get('economicActivity')?.touched">
+                <span *ngIf="companyForm.get('economicActivity')?.errors?.required">
+                    La actividad economica es obligatoria
+                </span>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="gubernamentalBranch" class="form-label">Rama gubernamental: </label>
+            <input class="form-control" type="text" id="gubernamentalBranch" placeholder="Ingrese la rama gubernamental" formControlName="gubernamentalBranch">
+            <div class="text-danger" *ngIf="companyForm.get('gubernamentalBranch')?.touched">
+                <span *ngIf="companyForm.get('gubernamentalBranch')?.errors?.required">
+                    La rama gubernamental es obligatoria
+                </span>
+            </div>
+        </div>
+        
+        <div class="col-md-12 mt-4 mb-5 text-center">
+            <button class="btn btn-success w-25" type="submit">Crear</button>
+        </div>
+    </form>
+</div>
